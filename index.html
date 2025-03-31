@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor do ET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Minecraft+Ten&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/960a69af88.js" crossorigin="anonymous"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Minecraft Ten', sans-serif;
+            overflow: hidden;
+        }
+        .glass-style {
+            backdrop-filter: blur(10px); 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.5);
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .ip-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .ip-box:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .copy-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: whitesmoke;
+    margin-left: 10px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    filter: none;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.6), 
+                 0 0 20px rgba(255, 255, 255, 0.4);
+}
+        .copy-icon:hover {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
+                 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.6);
+            transform: scale(1.2);
+        }
+        .ip-input {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 16px;
+            font-family: 'Minecraft Ten', sans-serif;
+            outline: none;
+            pointer-events: none;
+            flex: 1;
+        }
+        .cta-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(90deg, #352f83, #45a049);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+        }
+        nav {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px); 
+    border: none;
+    box-shadow: none; 
+    transition: all 0.3s ease; 
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: whitesmoke; 
+    transform: scale(1.1); 
+}
+
+        nav i {
+            color: white;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.6), 
+                 0 0 20px rgba(255, 255, 255, 0.4); 
+        }
+        nav a:hover i {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
+                 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.6); 
+    transform: scale(1.2); 
+}
+
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="fundo.mp4" type="video/mp4">
+        <p>Seu navegador não suporta vídeos em HTML5.</p>
+    </video>
+
+    <nav>
+            <a href="index.html">
+                <i class="fas fa-home"></i> Início
+            </a>
+            <a href="criadores.html">
+                <i class="fas fa-users"></i> Criadores
+            </a>
+            <a href="suporte.html">
+                <i class="fas fa-envelope"></i> Suporte
+            </a>
+    </nav>
+
+    <div id="home" class="content">
+        <h1>Bem-vindo ao Servidor do ET</h1>
+        <p>Conecte-se ao melhor servidor de Minecraft!</p>
+        <div class="ip-box">
+            <input type="text" class="ip-input" value="mc.exemplo.com" readonly title="Endereço IP do servidor" placeholder="Endereço IP do servidor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="copy-icon" width="24" height="24" viewBox="0 0 24 24" onclick="copyIP()">
+                <path fill="currentColor" d="M14 0a5 5 0 0 1 5 5v12a7 7 0 1 1-14 0V9h2v8a5 5 0 0 0 10 0V5a3 3 0 1 0-6 0v12a1 1 0 1 0 2 0V6h2v11a3 3 0 1 1-6 0V5a5 5 0 0 1 5-5"/>
+            </svg>
+        </div>        
+        <a href="entrar.html" class="cta-button">Entrar no Servidor</a>
+    </div>
+
+    
+<script>
+    function copyIP() {
+        const ip = document.querySelector('.ip-input').value;
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(ip).then(() => {
+                Swal.fire({
+                    title: 'IP copiado!',
+                    text: 'O endereço IP foi copiado para a área de transferência.',
+                    icon: 'success',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    color: '#0D47A1',
+                    confirmButtonColor: '#352f83',
+                    backdrop: 'rgba(0, 0, 0, 0.1)',
+                    customClass: { popup: 'glass-style' }
+                });
+            }).catch(() => {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Não foi possível copiar automaticamente. Por favor, copie manualmente.',
+                    icon: 'error'
+                });
+            });
+        } else {
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Seu navegador não suporta copiar automaticamente sem HTTPS. Por favor, copie manualmente.',
+                icon: 'info'
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
