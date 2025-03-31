@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criadores do Servidor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/960a69af88.js" crossorigin="anonymous"></script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            background: url('./fundo.mp4') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(15px); 
+    border: none; 
+    position: relative;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem; 
+    margin: 0;
+    color: whitesmoke;
+}
+
+header h1 i {
+    margin-right: 15px; 
+    font-size: 3.5rem;
+    color: #FFCA28; 
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: whitesmoke;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header h1 i {
+        font-size: 2.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(15px); 
+    box-shadow: none; 
+    transition: all 0.3s ease; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: whitesmoke; 
+    transform: scale(1.1); 
+}
+
+nav a i {
+    color: whitesmoke;
+    transition: all 0.3s ease-in-out; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.6), 
+                 0 0 20px rgba(255, 255, 255, 0.4); 
+}
+
+nav a:hover i {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
+                 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.6); 
+    transform: scale(1.2); 
+}
+
+header h1 i {
+    color: whitesmoke; 
+    transition: all 0.3s ease-in-out; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.6), 
+                 0 0 20px rgba(255, 255, 255, 0.4); 
+}
+
+header h1:hover i {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
+                 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.6); 
+    transform: scale(1.2); 
+}
+.content-section h2 i {
+    color: whitesmoke;
+    transition: all 0.3s ease-in-out; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.6), 
+                 0 0 20px rgba(255, 255, 255, 0.4); 
+}
+
+.content-section h2:hover i {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
+                 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.6); 
+    transform: scale(1.2); 
+}
+
+        .content-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(128, 128, 128, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            -webkit-backdrop-filter: blur(10px); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+
+        h1{
+            color: #0D47A1;
+        }
+        h2{
+            color: whitesmoke;
+        }
+
+        h3 {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .group {
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="background-video" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="./fundo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+    </video>
+    <nav>
+        <a href="index.html">
+            <i class="fas fa-home"></i> Início
+        </a>
+        <a href="criadores.html">
+            <i class="fas fa-users"></i> Criadores
+        </a>
+        <a href="suporte.html">
+            <i class="fas fa-envelope"></i> Suporte
+        </a>
+    </nav>
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-users"></i> Criadores do Servidor</h1>
+            <p>Conheça a equipe incrível que faz este servidor acontecer!</p>
+        </div>
+    </header>
+    <div class="content-section">
+        <h2><i class="fas fa-crown"></i> Donos</h2>
+        <p>Aqui estão os líderes que fundaram e lideram o servidor.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2><i class="fas fa-tools"></i> Administradores</h2>
+        <p>Esses são os administradores que mantêm o servidor funcionando.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2><i class="fas fa-phone-alt"></i> Suportes</h2>
+        <p>Os responsáveis por ajudar a comunidade!</p>
+    </div>
+    
+    <div class="content-section">
+        <h2><i class="fas fa-users"></i> Membros</h2>
+        <p>Os membros da equipe que contribuem diariamente.</p>
+    </div>
+    
+    <div class="content-section">
+        <h2><i class="fas fa-shield-alt"></i> Pen Testing</h2>
+        <p>Equipe responsável pela segurança do servidor.</p>
+    </div>
+</body>
+</html>
